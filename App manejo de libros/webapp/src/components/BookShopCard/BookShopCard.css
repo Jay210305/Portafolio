@@ -1,0 +1,62 @@
+.book-shop-card {
+    border: 1px solid rgba(175, 128, 186, 0.5);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: start;
+    background-color: transparent;
+    overflow: hidden; 
+  }
+  
+  .book-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .book-title {
+    color: #613E68;
+    font-size: 18px;
+    margin: 8px 0;
+    white-space: nowrap; /* Ensure the text is displayed on one line */
+    overflow: hidden; /* Hide any overflowing text */
+    text-overflow: ellipsis; /* Show ellipsis when text is too long */
+    width: 100%; 
+  }
+  
+  .book-category {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .book-rating {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 8px;
+  }
+  
+  .book-shop-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .book-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .buy-now-btn {
+    background-color: #AF80BA;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .buy-now-btn:hover {
+    opacity: 0.9;
+  }

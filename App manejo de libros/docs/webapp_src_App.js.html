@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: webapp/src/App.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: webapp/src/App.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from "./components/Header/Header";
+import BuyNow from "./components/BuyNow/BuyNow";
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import MainPage from './pages/MainPage/MainPage';
+import BookShopPage from './pages/BookShopPage/BookShopPage';
+import ControlPanel from './pages/ControlPanel/ControlPanel';
+import BooksPage from './pages/BooksPage/BooksPage';
+import UsersPage from './pages/UsersPage/UsersPage';
+import AddBookPage from './pages/AddBookPage/AddBookPage';
+import EditBookPage from './pages/EditBookPage/EditBookPage';
+import AddCategoryPage from './pages/AddCategoryPage/AddCategoryPage';
+
+/**
+ * App component is the main application component that sets up routing for the entire application.
+ * It uses React Router to define routes for different pages.
+ * @component
+ * @returns {JSX.Element} The rendered App component.
+ */
+function App() {
+  return (
+    &lt;Router>
+      &lt;div className="App">
+        &lt;Routes>
+          &lt;Route path="/" element={&lt;LoginPage />} />
+          &lt;Route path="/inicio" element={&lt;MainPage />} />
+          &lt;Route path="/tienda" element={&lt;BookShopPage />} />
+          &lt;Route path="/registro" element={&lt;RegisterPage />} />
+          &lt;Route path="/admin" element={&lt;ControlPanel />} />
+          &lt;Route path="/add-book" element={&lt;AddBookPage />} />
+          &lt;Route path="/edit-book/:id" element={&lt;EditBookPage />} />
+          &lt;Route path="/add-category" element={&lt;AddCategoryPage />} />
+        &lt;/Routes>
+      &lt;/div>
+    &lt;/Router>
+  );
+}
+
+export default App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddBookPage">AddBookPage</a></li><li><a href="global.html#AddCategoryPage">AddCategoryPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookShopPage">BookShopPage</a></li><li><a href="global.html#BooksPage">BooksPage</a></li><li><a href="global.html#CategoryPage">CategoryPage</a></li><li><a href="global.html#ControlPanel">ControlPanel</a></li><li><a href="global.html#EditBookPage">EditBookPage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#UsersPage">UsersPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

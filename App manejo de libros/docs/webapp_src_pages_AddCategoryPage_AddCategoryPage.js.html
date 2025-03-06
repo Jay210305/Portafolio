@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: webapp/src/pages/AddCategoryPage/AddCategoryPage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: webapp/src/pages/AddCategoryPage/AddCategoryPage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
+/**
+ * El componente AddCategoryPage renderiza un formulario para agregar una nueva categoría.
+ * @component
+ * @returns {JSX.Element} El componente AddCategoryPage renderizado.
+ */
+const AddCategoryPage = () => {
+  const [categoryName, setCategoryName] = useState('');
+  const navigate = useNavigate();
+
+  /**
+   * Maneja el envío del formulario para agregar una nueva categoría.
+   * @async
+   * @function
+   * @param {Event} event - El evento de envío del formulario.
+   */
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const newCategory = { nombre: categoryName };
+    const response = await fetch('http://localhost:3002/categorias', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newCategory)
+    });
+    if (response.ok) {
+      navigate('/categories'); // Redirección a la lista de categorías
+    }
+  };
+
+  return (
+    &lt;div className="container mt-5 Lexend-Deca">
+      &lt;h1 className="mb-4">Agregar Nueva Categoría&lt;/h1>
+      &lt;Form className='mx-5' onSubmit={handleSubmit}>
+        &lt;Form.Group controlId="categoryName" className="mb-3">
+          &lt;Form.Control
+            type="text"
+            placeholder="Ingrese el nombre de la categoría"
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
+            style={{
+              borderColor: 'rgba(97, 62, 104, 0.3)',
+              borderRadius: '30px',
+            }}
+          />
+        &lt;/Form.Group>
+        &lt;Button
+          variant="primary"
+          type="submit"
+          className="w-100"
+          style={{
+            backgroundColor: '#613E68',
+            borderRadius: '30px',
+            border: 'none',
+          }}
+        >
+          Guardar Categoría
+        &lt;/Button>
+      &lt;/Form>
+    &lt;/div>
+  );
+};
+
+export default AddCategoryPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddBookPage">AddBookPage</a></li><li><a href="global.html#AddCategoryPage">AddCategoryPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookShopPage">BookShopPage</a></li><li><a href="global.html#BooksPage">BooksPage</a></li><li><a href="global.html#CategoryPage">CategoryPage</a></li><li><a href="global.html#ControlPanel">ControlPanel</a></li><li><a href="global.html#EditBookPage">EditBookPage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#UsersPage">UsersPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

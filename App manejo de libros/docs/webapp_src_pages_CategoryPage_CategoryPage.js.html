@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: webapp/src/pages/CategoryPage/CategoryPage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: webapp/src/pages/CategoryPage/CategoryPage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
+import { Table, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
+/**
+ * El componente CategoryPage muestra una lista de categorías y proporciona una opción para agregar una nueva categoría.
+ * @component
+ * @returns {JSX.Element} El componente CategoryPage renderizado.
+ */
+const CategoryPage = () => {
+  const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    /**
+     * Obtiene la lista de categorías del servidor y actualiza el estado de categorías.
+     * @async
+     * @function
+     */
+    const fetchCategories = async () => {
+      const response = await fetch('http://localhost:3002/categorias');
+      const data = await response.json();
+      setCategories(data);
+    };
+
+    fetchCategories();
+  }, []);
+
+  /**
+   * Navega a la página para agregar una nueva categoría.
+   * @function
+   */
+  const handleAddCategory = () => {
+    navigate('/add-category');
+  };
+
+  return (
+    &lt;div className="container mt-5">
+      &lt;h1 className="Lexend-Deca">Categorías&lt;/h1>
+
+      &lt;Table className="align-middle mx-4" style={{ borderCollapse: 'collapse' }}>
+        &lt;thead>
+          &lt;tr>
+            &lt;th style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>ID&lt;/th>
+            &lt;th style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>Nombre&lt;/th>
+          &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+          {categories.map((category) => (
+            &lt;tr key={category.id}>
+              &lt;td style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>
+                {category.id}
+              &lt;/td>
+              &lt;td className="text-center" style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>
+                {category.nombre}
+              &lt;/td>
+            &lt;/tr>
+          ))}
+        &lt;/tbody>
+      &lt;/Table>
+      &lt;div className="text-center mt-4">
+        &lt;Button className="Lexend-Deca" style={{ backgroundColor: '#613E68', borderColor: '#613E68' }} onClick={handleAddCategory}>
+          Agregar Categoría
+        &lt;/Button>
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+export default CategoryPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddBookPage">AddBookPage</a></li><li><a href="global.html#AddCategoryPage">AddCategoryPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookShopPage">BookShopPage</a></li><li><a href="global.html#BooksPage">BooksPage</a></li><li><a href="global.html#CategoryPage">CategoryPage</a></li><li><a href="global.html#ControlPanel">ControlPanel</a></li><li><a href="global.html#EditBookPage">EditBookPage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#UsersPage">UsersPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

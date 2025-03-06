@@ -1,0 +1,54 @@
+.inicio-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    background-color: rgba(98, 60, 107, 0.15); /* #623C6B con 15% de opacidad */
+    padding: 10vh;
+
+  }
+  
+  .inicio-left-section {
+    flex: 1;
+    padding: 20px;
+
+  }
+  
+  .inicio-left-section h1 {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .inicio-left-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .shop-now-button {
+    font-size: 1.2rem;
+    background-color: #613E68;
+
+  }
+  
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel {
+    width: 40%;
+
+  }
+  
+  .carousel-image {
+    transition: transform 0.5s ease;
+    width: 20vh;
+  }
+  
+  .carousel-image:hover {
+    transform: scale(1.05);
+  }

@@ -1,0 +1,40 @@
+/* BestSeller.css */
+.Lexend-Deca {
+    font-family: 'Lexend Deca', sans-serif;
+  }
+.best-seller-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .top-text h1,
+  .top-text h2 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .top-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .top-text h2 {
+    font-size: 36px;
+    font-weight: normal;
+  }
+  
+  .book-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  .book-card {
+    margin: 0 15px;
+  }
+  

@@ -1,0 +1,33 @@
+.book-shop-page {
+    padding: 10vh;
+
+  }
+  
+  .category-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: #613E68;
+  }
+  
+  .book-category-section {
+    margin-bottom: 40px;
+  }
+  
+  .book-category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+
+    gap: 80px;
+  }
+  
+  @media (max-width: 1024px) {
+    .book-category-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .book-category-grid {
+      grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+  }

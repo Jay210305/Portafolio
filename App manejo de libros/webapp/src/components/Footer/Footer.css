@@ -1,0 +1,53 @@
+.kadwa {
+    font-family: 'Kadwa', serif;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #D5C4D9;
+
+  }
+  
+  .footer-section {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  .footer-section.large {
+    flex: 2; /* Larger sections on the left and right */
+  }
+  
+  .footer-section h2, .footer-section h5 {
+    color: #613E68;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section p, .footer-section ul {
+    color: #333;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 5px;
+  }
+  
+  .social-media-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  .footer-image {
+    max-width:30vh; /* Adjust image size */
+    position: relative;
+    bottom: 15vh; /* Make the image pop out from the footer */
+  }
+  
+  .footer-section.right p {
+    margin-top: 10px;
+  }

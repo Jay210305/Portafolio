@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: webapp/src/pages/AddBookPage/AddBookPage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: webapp/src/pages/AddBookPage/AddBookPage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import { Form, Button, Dropdown, Row, Col } from 'react-bootstrap';
+
+/**
+ * El componente AddBookPage renderiza un formulario para agregar un nuevo libro.
+ * @component
+ * @returns {JSX.Element} El componente AddBookPage renderizado.
+ */
+const AddBookPage = () => {
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [stock, setStock] = useState('');
+  const [category, setCategory] = useState('');
+  const [categories, setCategories] = useState([]);
+
+  /**
+   * Obtiene las categorías del servidor y actualiza el estado de categorías.
+   * Llamado una vez al montar el componente.
+   * @async
+   */
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  /**
+   * Obtiene las categorías de la API y las establece en el estado.
+   * @async
+   * @function
+   * @returns {Promise&lt;void>}
+   */
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('http://localhost:3002/categorias');
+      const data = await response.json();
+      setCategories(data);
+    } catch (error) {
+      console.error('Error al obtener las categorías:', error);
+    }
+  };
+
+  /**
+   * Maneja el envío del formulario para agregar un nuevo libro.
+   * @async
+   * @function
+   * @param {Event} event - El evento de envío del formulario.
+   */
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const newBook = { titulo: title, precio: price, stock: stock, categoria_id: category };
+    const response = await fetch('http://localhost:3002/libros', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newBook)
+    });
+    if (response.ok) {
+      alert('Libro agregado exitosamente');
+      // Opcionalmente, redirigir o limpiar el formulario aquí
+    }
+  };
+
+  return (
+    &lt;div className="container mt-5">
+      &lt;h1 className="mb-4">Agregar Nuevo Libro&lt;/h1>
+      &lt;Form className='mx-5' onSubmit={handleSubmit}>
+        &lt;Form.Group controlId="bookName" className="mb-3">
+          &lt;Form.Control
+            type="text"
+            placeholder="Ingrese el nombre del libro"
+            style={{
+              borderColor: 'rgba(97, 62, 104, 0.3)',
+              borderRadius: '30px',
+            }}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        &lt;/Form.Group>
+
+        &lt;Row className="mb-3">
+          &lt;Col>
+            &lt;Form.Group controlId="price">
+              &lt;Form.Control
+                type="number"
+                placeholder="Ingrese el precio"
+                style={{
+                  borderColor: 'rgba(97, 62, 104, 0.3)',
+                  borderRadius: '30px',
+                }}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            &lt;/Form.Group>
+          &lt;/Col>
+          &lt;Col>
+            &lt;Form.Group controlId="stock">
+              &lt;Form.Control
+                type="number"
+                placeholder="Ingrese el stock"
+                style={{
+                  borderColor: 'rgba(97, 62, 104, 0.3)',
+                  borderRadius: '30px',
+                }}
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
+              />
+            &lt;/Form.Group>
+          &lt;/Col>
+          &lt;Col>
+            &lt;Dropdown onSelect={(eventKey) => setCategory(eventKey)}>
+              &lt;Dropdown.Toggle
+                style={{
+                  width: '100%',
+                  backgroundColor: 'transparent',
+                  borderColor: 'rgba(97, 62, 104, 0.3)',
+                  borderRadius: '30px',
+                  color: '#613E68',
+                }}
+                id="dropdown-basic"
+              >
+                {category ? categories.find(c => c.id === parseInt(category)).nombre : 'Seleccione una categoría'}
+              &lt;/Dropdown.Toggle>
+
+              &lt;Dropdown.Menu>
+                {categories.map((cat) => (
+                  &lt;Dropdown.Item key={cat.id} eventKey={cat.id}>{cat.nombre}&lt;/Dropdown.Item>
+                ))}
+              &lt;/Dropdown.Menu>
+            &lt;/Dropdown>
+          &lt;/Col>
+        &lt;/Row>        
+        &lt;Button type="submit" className="w-100" style={{ backgroundColor: '#613E68', borderRadius: '30px', border: 'none' }}>
+          Guardar Libro
+        &lt;/Button>
+      &lt;/Form>
+    &lt;/div>
+  );
+};
+
+export default AddBookPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddBookPage">AddBookPage</a></li><li><a href="global.html#AddCategoryPage">AddCategoryPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookShopPage">BookShopPage</a></li><li><a href="global.html#BooksPage">BooksPage</a></li><li><a href="global.html#CategoryPage">CategoryPage</a></li><li><a href="global.html#ControlPanel">ControlPanel</a></li><li><a href="global.html#EditBookPage">EditBookPage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#UsersPage">UsersPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

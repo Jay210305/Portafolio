@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: webapp/src/pages/UsersPage/UsersPage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: webapp/src/pages/UsersPage/UsersPage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
+
+/**
+ * UsersPage component displays a list of users fetched from an API.
+ * @component
+ * @returns {JSX.Element} The rendered UsersPage component.
+ */
+const UsersPage = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:3002/usuarios');
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('Failed to fetch users:', error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  return (
+    &lt;div className="container mt-5">
+      &lt;h1 className="Lexend-Deca">Users&lt;/h1>
+      &lt;Table className="align-middle mx-4" style={{ borderCollapse: 'collapse' }}>
+        &lt;thead>
+          &lt;tr>
+            &lt;th style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>Username&lt;/th>
+            &lt;th className="text-center" style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>Correo&lt;/th>
+          &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+          {users.map((user) => (
+            &lt;tr key={user.id}>
+              &lt;td style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>
+                &lt;div className="Lexend-Deca" style={{ color: '#613E68', fontWeight: 'bold' }}>
+                  {user.nombre}
+                &lt;/div>
+              &lt;/td>
+              &lt;td className="text-center" style={{ borderBottom: '1px solid rgba(97, 62, 104, 0.25)' }}>
+                &lt;small className="text-muted Lexend-Deca">{user.correo}&lt;/small>
+              &lt;/td>
+            &lt;/tr>
+          ))}
+        &lt;/tbody>
+      &lt;/Table>
+    &lt;/div>
+  );
+};
+
+export default UsersPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-app.html">app</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AddBookPage">AddBookPage</a></li><li><a href="global.html#AddCategoryPage">AddCategoryPage</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BookShopPage">BookShopPage</a></li><li><a href="global.html#BooksPage">BooksPage</a></li><li><a href="global.html#CategoryPage">CategoryPage</a></li><li><a href="global.html#ControlPanel">ControlPanel</a></li><li><a href="global.html#EditBookPage">EditBookPage</a></li><li><a href="global.html#LoginPage">LoginPage</a></li><li><a href="global.html#MainPage">MainPage</a></li><li><a href="global.html#RegisterPage">RegisterPage</a></li><li><a href="global.html#UsersPage">UsersPage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

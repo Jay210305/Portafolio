@@ -1,0 +1,73 @@
+.common-questions {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .common-questions-left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the container */
+    padding-right: 20px;
+  }
+  
+  .common-questions-left-section h1 {
+    color: #000000;
+    margin-bottom: 10px;
+    font-size: 3em;
+  }
+  
+  .common-questions-left-section p {
+    color: #333;
+    text-align: left; /* Align the text to the left */
+    max-width: 70%; /* Optional: Control paragraph width */
+  }
+  
+  .common-questions-right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content */
+    padding-left: 20px;
+  }
+  
+  .question-container {
+    background-color: transparent;
+    border: 1px solid rgba(97, 62, 104, 0.6);
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%; /* Center by controlling the width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the contents inside the container */
+  }
+  
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #613E68;
+    width: 100%; /* Ensure it spans the width of the container */
+  }
+  
+  .question-header h3 {
+    margin: 0;
+    flex: 1; /* Take up the available space */
+    text-align: left; /* Align the text to the left inside the container */
+  }
+  
+  .answer {
+    margin-top: 10px;
+    color: #333;
+    text-align: left; /* Align answer text to the left */
+    width: 100%; /* Ensure answer spans the width of the container */
+  }
+  
+  .question-container:hover {
+    background-color: rgba(97, 62, 104, 0.05); /* Light hover effect */
+  }

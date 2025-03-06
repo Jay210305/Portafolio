@@ -1,0 +1,90 @@
+/* RegisterPage.css */
+
+/* Left section styling */
+.left-section {
+    background-color: #D5C4D9;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  /* Text in the middle of left section */
+  .middle-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+  
+  /* Right section styling */
+  .right-section {
+    background-color: #FFFFFF;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register-form {
+    width: 80%; /* Adjust as needed */
+    max-width: 400px;
+  }
+  
+  .register-form h2 {
+    margin-bottom: 30px;
+  }
+  
+  .custom-input {
+    background-color: transparent;
+    border: 1px solid #AF80BA;
+    margin-bottom: 20px;
+    color: #000000;
+    border-radius: 30px;
+    padding: 10px;
+  }
+  
+  .sign-up-button {
+    background-color: #613E68;
+    color: #FFFFFF;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 30px;
+  }
+  
+  .already-account {
+    margin-top: 20px;
+  }
+  
+  .sign-in-link {
+    color: #613E69;
+    text-decoration: none;
+  }
+  
+  .sign-in-link:hover {
+    text-decoration: underline;
+  }
+  .kadwa-font {
+    font-family: 'Kadwa', serif;
+}
+.Lexend-Deca {
+    font-family: 'Lexend Deca', sans-serif;
+  }

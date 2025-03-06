@@ -1,0 +1,52 @@
+/* Header.css */
+/* Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa&display=swap');
+
+/* Header.css */
+
+.navbar {
+  background-color: white;
+  transition: background-color 0.3s;
+  font-family: 'Kadwa', serif;
+}
+
+.navbar.top-nav {
+  background-color: transparent;
+}
+
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #DDDDDD;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+/* Estilos para el input de búsqueda */
+.search-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+}
+
+/* Ajustar el tamaño del icono */
+.search-button i {
+    font-size: 1.2rem;
+}
+
+.profile-button i {
+    font-size: 1.5rem;
+}
+
+
